@@ -2,6 +2,8 @@
 
 namespace Gloudemans\Shoppingcart;
 
+use App\Models\AppVariant;
+use App\Models\Scopes\SelfDesignedScope;
 use Illuminate\Contracts\Support\Arrayable;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Contracts\Support\Jsonable;
@@ -275,7 +277,7 @@ class CartItem implements Arrayable, Jsonable
         }
 
         if($attribute === 'model' && isset($this->associatedModel)) {
-            return with(new $this->associatedModel)->find($this->id);
+            return with(new $this->associatedModel)->withoutGlobalScope(SelfDesignedScope::class)->find($this->id);
         }
 
         return null;
