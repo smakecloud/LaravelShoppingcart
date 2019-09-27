@@ -4,6 +4,7 @@ namespace Gloudemans\Shoppingcart;
 
 use Closure;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
 use Illuminate\Session\SessionManager;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Contracts\Events\Dispatcher;
